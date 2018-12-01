@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import moment from 'moment'
 import Disqus from '../Disqus/Disqus'
+import Links from '../Links'
 import './style.scss'
 
 class PostTemplateDetails extends React.Component {
@@ -13,7 +14,7 @@ class PostTemplateDetails extends React.Component {
     const homeBlock = (
       <div>
         <Link className="post-single__home-button" to="/">
-          All Articles
+          Back
         </Link>
       </div>
     )
@@ -62,16 +63,10 @@ class PostTemplateDetails extends React.Component {
           <div className="post-single__footer">
             {tagsBlock}
             <hr />
-            <p className="post-single__footer-text">
-              {subtitle}
-              <a
-                href={`https://twitter.com/${author.twitter}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <br /> <strong>{author.name}</strong> on Twitter
-              </a>
-            </p>
+            <div className="post-single__footer-text">
+              <span dangerouslySetInnerHTML={{__html: subtitle}}></span>
+              <Links data={author} />
+            </div>
             {commentsBlock}
           </div>
         </div>

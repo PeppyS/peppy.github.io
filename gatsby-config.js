@@ -3,34 +3,24 @@ const pxtorem = require('postcss-pxtorem')
 
 module.exports = {
   siteMetadata: {
-    url: 'https://peppy.github.io',
+    url: 'https://peppys.github.io',
     title: 'Peppy\'s Blog',
     subtitle:
-      'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+      'Hey 👋🏾 I\'m a young black software engineer, striving for excellence! Currently a back-end engineer at <a href="https://shipwithbolt.com">Bolt</a>',
     copyright: '© All rights reserved.',
     disqusShortname: '',
     menu: [
       {
-        label: 'Articles',
+        label: 'Blog',
         path: '/',
-      },
-      {
-        label: 'About me',
-        path: '/about/',
-      },
-      {
-        label: 'Contact me',
-        path: '/contact/',
       },
     ],
     author: {
       name: 'Peppy Sisay',
-      email: '#',
-      telegram: '#',
-      twitter: '#',
-      github: '#',
-      rss: '#',
-      vk: '#',
+      email: 'peppysisay@gmail.com',
+      linkedIn: 'peppysisay',
+      twitter: 'xPeppy',
+      github: 'PeppyS',
     },
   },
   plugins: [

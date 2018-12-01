@@ -42,7 +42,7 @@ class Sidebar extends React.Component {
             </Link>
           </h2>
         )}
-        <p className="sidebar__author-subtitle">{subtitle}</p>
+        <p className="sidebar__author-subtitle" dangerouslySetInnerHTML={{__html: subtitle}}></p>
       </div>
     )
     /* eslint-enable jsx-a11y/img-redundant-alt */
