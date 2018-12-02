@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import moment from 'moment'
-import Disqus from '../Disqus/Disqus'
+import Comments from '../Comments'
 import Links from '../Links'
 import './style.scss'
 
@@ -34,15 +34,6 @@ class PostTemplateDetails extends React.Component {
       </div>
     )
 
-    const commentsBlock = (
-      <div>
-        <Disqus
-          postNode={post}
-          siteMetadata={this.props.data.site.siteMetadata}
-        />
-      </div>
-    )
-
     return (
       <div>
         {homeBlock}
@@ -64,10 +55,10 @@ class PostTemplateDetails extends React.Component {
             {tagsBlock}
             <hr />
             <div className="post-single__footer-text">
-              <span dangerouslySetInnerHTML={{__html: subtitle}}></span>
+              <span dangerouslySetInnerHTML={{ __html: subtitle }}></span>
               <Links data={author} />
             </div>
-            {commentsBlock}
+            <Comments />
           </div>
         </div>
       </div>

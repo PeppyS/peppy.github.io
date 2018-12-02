@@ -1,9 +1,9 @@
 ---
 title: Introduction
-date: "2018-12-11T16:40:00.000Z"
+date: "2018-12-01T16:40:00.000Z"
 layout: post
 draft: false
-path: "/posts/introduction/"
+path: "/posts/introduction-1/"
 category: "Blog"
 tags:
   - "Introduction"
