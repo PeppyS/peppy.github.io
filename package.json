@@ -11,7 +11,7 @@
     "lint": "./node_modules/.bin/eslint --cache --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write './*.js' 'src/**/*.js' 'src/**/*.jsx'",
-    "predeploy": "rm -f CNAME && printf 'www.peppysisay.com\npeppysisay.com' >> CNAME",
+    "predeploy": "rm -f CNAME && printf 'peppysisay.com\nwww.peppysisay.com' >> CNAME",
     "deploy": "gatsby build --prefix-paths && mv CNAME public/ && gh-pages -d public -b master"
   },
   "repository": "git+https://github.com/alxshelepenok/gatsby-starter-lumen.git",
