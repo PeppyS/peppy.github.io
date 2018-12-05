@@ -17,7 +17,7 @@ class PostTemplateDetails extends React.Component {
   }
 
   async fetchPost() {
-    const response = await axios.get('https://api.peppysisay.com/blog/post/3')
+    const response = await axios.get('https://api.peppysisay.com/blog/posts/3')
 
     const { data } = response.data
 
