@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React from 'react'
 import { Link } from 'gatsby'
 import moment from 'moment'
@@ -6,7 +7,28 @@ import Links from '../Links'
 import './style.scss'
 
 class PostTemplateDetails extends React.Component {
+  state = {
+    comments: [],
+    likesCount: 0,
+  }
+
+  componentDidMount() {
+    this.fetchPost()
+  }
+
+  async fetchPost() {
+    const response = await axios.get('https://api.peppysisay.com/blog/post/3')
+
+    const { data } = response.data
+
+    this.setState({
+      comments: data.comments,
+      likesCount: data.likes_count
+    })
+  }
+
   render() {
+    const { comments } = this.state
     const { subtitle, author } = this.props.data.site.siteMetadata
     const post = this.props.data.markdownRemark
     const tags = post.fields.tagSlugs
@@ -58,7 +80,7 @@ class PostTemplateDetails extends React.Component {
               <span dangerouslySetInnerHTML={{ __html: subtitle }}></span>
               <Links data={author} />
             </div>
-            <Comments />
+            <Comments comments={comments} />
           </div>
         </div>
       </div>
