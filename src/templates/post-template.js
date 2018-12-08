@@ -49,6 +49,7 @@ export const pageQuery = graphql`
         tagSlugs
       }
       frontmatter {
+        id
         title
         tags
         date

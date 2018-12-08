@@ -7,8 +7,8 @@ export default class Comments extends React.Component {
 
         return (
             <div className="comments">
-                {comments.map(comment => (
-                    <div className="comment-wrap">
+                {comments.map((comment, i) => (
+                    <div key={i} className="comment-wrap">
                         <div className="photo">
                             <div className="avatar" style={{ backgroundImage: "url('https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg')" }}></div>
                         </div>
@@ -16,7 +16,7 @@ export default class Comments extends React.Component {
                             <p className="comment-text">{comment.text}</p>
                             <div className="bottom-comment">
                                 <div className="comment-date">{comment.created_at}</div>
-                                <br/>
+                                <br />
                                 <div className="comment-date">{comment.first_name} {comment.last_name}</div>
                                 <ul className="comment-actions">
                                     <li className="complain">Like</li>
@@ -33,7 +33,8 @@ export default class Comments extends React.Component {
                     </div>
                     <div className="comment-block">
                         <form action="">
-                            <textarea name="" id="" cols="30" rows="3" placeholder="Add comment..."></textarea>
+                            <textarea name="" id="" cols="30" rows="3" placeholder="Add comment...">
+                            </textarea>
                         </form>
                     </div>
                 </div>

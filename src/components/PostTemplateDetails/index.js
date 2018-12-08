@@ -17,7 +17,9 @@ class PostTemplateDetails extends React.Component {
   }
 
   async fetchPost() {
-    const response = await axios.get('https://api.peppysisay.com/blog/posts/3')
+    const post = this.props.data.markdownRemark
+
+    const response = await axios.get(`http://localhost:8080/blog/posts/${post.frontmatter.id}`)
 
     const { data } = response.data
 
