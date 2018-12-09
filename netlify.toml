@@ -4,4 +4,4 @@
 [build.environment]
   YARN_VERSION = "1.3.2"
   YARN_FLAGS = "--no-ignore-optional"
-  API_BASE_URL = "https://api.peppysisay.com"
+  GATSBY_API_BASE_URL = "https://api.peppysisay.com"
