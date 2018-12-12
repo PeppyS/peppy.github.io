@@ -116,7 +116,7 @@ func (p BlogPost) MarshalJSON() ([]byte, error) {
 }
 ```
 
-Now, whenever our `BlogPostAlias` object is marshalled into JSON, it will override the `User` field with type `DatabaseReference` to be marshalled with just the user ID.
+Now, whenever our `BlogPost` object is marshalled into JSON, it will override the `User` field with type `DatabaseReference` to be marshalled with just the user ID.
 
 Sooo, we can go back to doing just this:
 ```go
