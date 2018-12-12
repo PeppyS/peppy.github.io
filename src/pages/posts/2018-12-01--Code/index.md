@@ -50,7 +50,7 @@ Now here's what happens when someone sends a request to `https://api.yourblogcom
 {
 	"data": {
 		"id": "5234563",
-		"content": "So. Lets say you’re building a blog, and you want to keep track of comments for each post...",
+		"content": "So. Let’s say you’re back-end engineer at a blog company...",
 		"likes_count": 0,
 		"user_id": {
 			"path": "path/to/your/database/users",
@@ -102,21 +102,21 @@ Oh yeah there is. With go, you can re-write a struct's `MarshalJSON()` method, d
 Check it out.
 
 ```go
-func (p Post) MarshalJSON() ([]byte, error) {
-	// Alias used to bring all of Post's existing fields over
-	type PostAlias Post
+func (p BlogPost) MarshalJSON() ([]byte, error) {
+	// Alias used to bring all of BlogPost's existing fields over
+	type BlogPostAlias BlogPost
 
 	return json.Marshal(struct {
-		PostAlias 
-		User  string `json:"user_id"`
+		BlogPostAlias
+		User string `json:"user_id"`
 	}{
-		PostAlias: PostAlias(p),
-		User:      p.User.ID,
+		BlogPostAlias: BlogPostAlias(p),
+		User:          p.User.ID,
 	})
 }
 ```
 
-Now, whenever our `Post` object is marshalled into JSON, it will override the `User` field with type `DatabaseReference` to be marshalled with just the user ID.
+Now, whenever our `BlogPostAlias` object is marshalled into JSON, it will override the `User` field with type `DatabaseReference` to be marshalled with just the user ID.
 
 Sooo, we can go back to doing just this:
 ```go
@@ -130,7 +130,7 @@ And we'll get:
 {
 	"data": {
 		"id": "5234563",
-		"content": "So. Lets say you’re building a blog, and you want to keep track of comments for each post...",
+		"content": "So. Let’s say you’re back-end engineer at a blog company...",
 		"likes_count": 0,
 		"user_id": "3245",
 	}
