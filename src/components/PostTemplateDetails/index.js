@@ -5,6 +5,7 @@ import moment from 'moment'
 import Comments from '../Comments'
 import Links from '../Links'
 import './style.scss'
+import { getSessionId } from '../../utils';
 
 class PostTemplateDetails extends React.Component {
   state = {
@@ -27,6 +28,34 @@ class PostTemplateDetails extends React.Component {
       comments: data.comments,
       likesCount: data.likes_count
     })
+  }
+
+  async postComment(text, name) {
+    const post = this.props.data.markdownRemark
+
+    const response = await axios.post(`${process.env.GATSBY_API_BASE_URL}/blog/posts/${post.frontmatter.id}/comments`, {
+      text,
+      name,
+    }, {
+      headers: {
+        'X-Session-ID': getSessionId(),
+      },
+    })
+
+    this.fetchPost()
+  }
+
+  async deleteComment(id) {
+    const post = this.props.data.markdownRemark
+    console.log('DELETEING COMMENT', id)
+
+    await axios.delete(`${process.env.GATSBY_API_BASE_URL}/blog/posts/${post.frontmatter.id}/comments/${id}`, {
+      headers: {
+        'X-Session-ID': getSessionId(),
+      },
+    })
+
+    this.fetchPost()
   }
 
   render() {
@@ -82,7 +111,7 @@ class PostTemplateDetails extends React.Component {
               <span dangerouslySetInnerHTML={{ __html: subtitle }}></span>
               <Links data={author} />
             </div>
-            <Comments comments={comments} />
+            <Comments comments={comments} postComment={this.postComment.bind(this)} handleDelete={this.deleteComment.bind(this)} />
           </div>
         </div>
       </div>
