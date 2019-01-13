@@ -47,7 +47,6 @@ class PostTemplateDetails extends React.Component {
 
   async deleteComment(id) {
     const post = this.props.data.markdownRemark
-    console.log('DELETEING COMMENT', id)
 
     await axios.delete(`${process.env.GATSBY_API_BASE_URL}/blog/posts/${post.frontmatter.id}/comments/${id}`, {
       headers: {
