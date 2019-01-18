@@ -42,7 +42,14 @@ class PostTemplateDetails extends React.Component {
       },
     })
 
-    this.fetchPost()
+    const { data: comment } = response.data
+
+    this.setState({
+      comments: [
+        ...this.state.comments,
+        { ...comment, is_owner: true },
+      ]
+    })
   }
 
   async deleteComment(id) {
@@ -54,7 +61,9 @@ class PostTemplateDetails extends React.Component {
       },
     })
 
-    this.fetchPost()
+    this.setState({
+      comments: this.state.comments.filter((comment) => comment.id !== id)
+    })
   }
 
   render() {

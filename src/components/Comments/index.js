@@ -56,7 +56,7 @@ export default class CommentSection extends React.Component {
                             text={comment.text}
                             createdAt={comment.created_at}
                             name={comment.name}
-                            isOwner={true || comment.is_owner}
+                            isOwner={comment.is_owner}
                             handleDelete={handleDelete}
                         />
                     ))}
