@@ -10,7 +10,7 @@ module.exports = {
     url: 'https://peppysisay.com',
     title: 'Peppy\'s Blog',
     subtitle:
-      'Hey 👋🏾 I\'m a young black software engineer, striving for excellence! Currently a back-end engineer at <a href="https://www.mothership.com">Mothership</a>',
+      'Hey 👋🏾 I\'m a young black software engineer, striving for excellence! Currently a Platform Engineer at <a href="https://dave.com">dave.com</a>',
     copyright: '© All rights reserved.',
     disqusShortname: '',
     menu: [
