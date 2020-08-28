@@ -43,6 +43,10 @@ img.hero {
     width: 450px;
 }
 
+img.avatar {
+    width: 30px;
+}
+
 div.contact {
     margin-top: 10px;
 }
