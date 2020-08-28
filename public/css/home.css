@@ -1,0 +1,48 @@
+div.main {
+    margin-top: 30px;
+    text-align: center;
+}
+
+div.bio {
+    margin-bottom: 20px;
+    font-size: x-large;
+    font-family: monospace;
+    line-height: 30px;
+}
+
+div.social-links {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: mediumpurple;
+}
+
+a.netflix {
+    color: #E50914;
+}
+
+a:hover {
+    color: purple;
+
+}
+
+div.social-link {
+    margin: 10px;
+    font-size: x-large;
+    font-family: monospace;
+}
+
+img.badge {
+    width: 25px;
+}
+
+img.hero {
+    margin-top: 20px;
+    width: 450px;
+}
+
+div.contact {
+    margin-top: 10px;
+}

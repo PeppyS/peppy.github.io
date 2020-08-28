@@ -1,0 +1,30 @@
+# This workflow will deploy the static website to Netlify
+
+name: Build and Deploy to Netlify
+
+on:
+  release:
+    types: [created]
+
+# Environment variables available to all jobs and steps in this workflow
+env:
+  NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+  NETLIFY_SITE: ${{ secrets.NETLIFY_SITE }}
+
+jobs:
+  setup-build-publish-deploy:
+    name: Setup, Build, Publish, and Deploy
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Build and deploy the static website to Netlify
+      - name: Deploy Web
+        run: |
+          zip -r website.zip public
+          curl -H "Content-Type: application/zip" \
+                         -H "Authorization: Bearer $NETLIFY_ACCESS_TOKEN" \
+                         --data-binary "@website.zip" \
+                         "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE/deploys"
