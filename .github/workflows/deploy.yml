@@ -1,6 +1,6 @@
 # This workflow will deploy the static website to Netlify
 
-name: Build and Deploy to Cloud Run and Netlify
+name: Build and Deploy to Netlify
 
 on:
   release:
