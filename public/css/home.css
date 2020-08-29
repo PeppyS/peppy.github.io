@@ -23,6 +23,10 @@ a.netflix {
     color: #E50914;
 }
 
+a.netflix, img {
+    width: 100px;
+}
+
 a:hover {
     color: purple;
 
